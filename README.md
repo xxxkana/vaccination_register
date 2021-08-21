@@ -35,3 +35,20 @@ has_one :registration
 
 ### Association
 belongs_to :users
+
+
+
+# Application_name
+ This application' name is Vaccination_Register.  
+
+ ## Overview
+ 
+ ## Production environment and testing accounts  
+
+ ## Why producing this App?   
+
+ ## The points that thought and work out  
+
+ ## Development environment  
+
+ ## future issue and function which want to implement 
