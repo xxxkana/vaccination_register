@@ -1,10 +1,10 @@
 <div class="main">
   <div class="inner">
     <div class="form__wrapper">
-      <h2 class="page-heading">ユーザー新規登録</h2>
+      <h2 class="page-heading">新規登録</h2>
 
-        <%# 「モデル名」にはUserモデルであれば@userを渡しましょう。%>
-        <%# 「新規登録機能へのパス」は、devise導入後にrails routesを実行してdevise/registrations#createへのパスを確認し、記載してください。 %>
+        <%= render partial: 'devise/shared/error_messages', locals: { user: @user } %>
+
         <%= form_with model: @user, url: user_registration_path, local: true do |f| %>
 
         <div class="field">
@@ -60,32 +60,40 @@
             "<p> 年 </p>", "<p> 月 </p>") + "<p> 日 </p>" %>
         </div>
 
-　　　　<div class="items-detail">
-        <div class="form">
-        <div class="weight-bold-text">
-          カテゴリー
-        </div>
-        <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
-        <div class="weight-bold-text">
-          商品の状態
-        </div>
-        <%= f.collection_select(:condition_id, Condition.all, :id, :name, {}, {class:"select-box", id:"item-sales-status"}) %>
-        </div>
-      </div>
-
         <div class="field">
-          <%= f.label :body_weight, "体重" %><br />
+          <%= f.label :body_weight, "体重(半角)" %><br />
           <%= f.text_field :body_weight, id:"user_body_weight" %>
         </div>
 
         <div class="field">
-          <%= f.label :height, "身長" %><br />
+          <%= f.label :height, "身長(半角)" %><br />
           <%= f.text_field :height, id:"user_height" %>
         </div>
 
         <div class="field">
-          <%= f.label :body_temperature, "今朝の体温" %><br />
+          <%= f.label :body_temperature, "今朝の体温(半角)" %><br />
           <%= f.text_field :body_temperature, id:"user_body_temperature" %>
+        </div>
+
+        <div class="items-detail">
+          <div class="form">
+           <div class="weight-bold-text">
+            血液型
+           </div>
+           <%= f.collection_select(:blood_type_id, BloodType.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
+          <div class="weight-bold-text">
+            アレルギーの有無
+          </div>
+           <%= f.collection_select(:allergy_id, Allergy.all, :id, :name, {}, {class:"select-box", id:"item-sales-status"}) %>
+          <div class="weight-bold-text">
+            持病の有無
+          </div>
+           <%= f.collection_select(:chronic_condition_id, ChronicCondition.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
+          <div class="weight-bold-text">
+            会場
+          </div>
+           <%= f.collection_select(:venue_id, Venue.all, :id, :name, {}, {class:"select-box", id:"item-sales-status"}) %>
+          </div>
         </div>
 
         <div class="actions">

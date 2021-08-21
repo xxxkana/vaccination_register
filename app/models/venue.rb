@@ -11,7 +11,7 @@ class Venue < ActiveHash::Base
     { id: 9, name: '広島' },
     { id: 10, name: '福岡' },
     { id: 11, name: '那覇' }
-　 ]
+]
  
   end
  

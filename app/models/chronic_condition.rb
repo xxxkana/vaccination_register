@@ -3,7 +3,7 @@ class ChronicCondition < ActiveHash::Base
     { id: 1, name: '--' },
     { id: 2, name: '有り' },
     { id: 3, name: '無し' }
-　 ]
+]
  
   end
  
