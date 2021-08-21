@@ -1,24 +1,37 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## users テーブル
 
-Things you may want to cover:
+| Column                        | Type     | Options                  |
+| ----------------------------- | -------- | ------------------------ |
+| name                          | string   | null: false              |
+| name_reading                  | string   | null: false              |
+| encrypted_password            | string   | null: false              |
+| address                       | text     | null: false              |
+| phone_number                  | string   | null: false              |
+| email                         | string   | null: false, unique: true|
+| datetime                      | date     | null: false              |
+| blood_type_id                 | integer  | null: false              |
+| body_weight                   | integer  | null: false              |
+| height                        | integer  | null: false              |
+| body_temperature              | integer  | null: false              |
+| allergy_id                    | integer  | null: false              |
+| chronic_condition_id          | integer  | null: false              |
+| venue_id                      | integer  | null: false              |
+| public_uid                    | string   | null: false, unique: true|
 
-* Ruby version
 
-* System dependencies
+### Association
+has_one :registration
 
-* Configuration
 
-* Database creation
+## registrations テーブル
 
-* Database initialization
+| Column                        | Type       | Options                　| 
+| ----------------------------- | ---------- | -------------------------|
+| user                          | references | foreign_key: true        |    
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
-
-* ...
+### Association
+belongs_to :users
