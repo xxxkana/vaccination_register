@@ -3,8 +3,8 @@
     <% if user_signed_in? %>
       <div class="greeting"> 
         こんにちは、
-        <% link_to "#{current_user.name}さん", root_path, class: :greeting__link%> 
-        あなたの登録番号：<%= current_user.public_uid %>       
+        <% link_to "#{current_user.name}さん", _path, class: :greeting__link%> 
+        <!-- あなたの登録番号：<%= current_user.public_uid %>  -->
       </div>
     <% end %>  
   </div>

@@ -118,7 +118,35 @@ a {
   cursor: pointer;
 }
 
-/* メイン */
+/* main */
+
+.wrap {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.item {
+  padding: 30px;
+  width: 32%;
+  background-color: #fff;
+}
+
+.main_session {
+  text-decoration: underline;
+}
+
+@media not all and (min-width: 768px) {
+  .item {
+    width: 100%;
+  }
+
+  .item:not(:last-child) {
+    margin-bottom: 30px;
+  }
+}
+
+/* インデックス */
 
 .greeting{
   margin-bottom: 20px;

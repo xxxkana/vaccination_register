@@ -1,14 +1,10 @@
 class User < ApplicationRecord
-  #before_validation :assign_public_uid
-
-  #def assign_public_uid
-    #self.public_uid =  unless public_uid
-  #end
+ 
 
   devise :database_authenticatable, :registerable,:recoverable, :rememberable, :validatable
 
   with_options presence: true do
-    validates :address, :datetime, :public_uid
+    validates :address, :datetime
     validates :name, format: {with: /\A[ぁ-んァ-ン一-龥]/}
     validates :name_reading, format: {with: /\A[ァ-ヶー－]+\z/}
     validates :phone_number,format: {with: /\A\d{10,11}\z/}

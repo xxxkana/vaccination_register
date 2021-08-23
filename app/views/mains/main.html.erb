@@ -1,0 +1,26 @@
+<main class="main">
+  <div class="inner">
+    
+    <div class="wrap">
+     <div class="item">
+      <img src="pic01.jpg">
+      <h2>会場担当者ログインページ</h2>
+      <%= link_to "会場担当者はこちらからログインしてください。", _path, class:main_session %> 
+     </div>
+
+     <div class="item">
+      <img src="pic02.jpg">
+      <h2>ユーザー新規登録</h2>
+      <%= link_to "初めてワクチン接種をする方は、こちらより登録してください。", new_user_registration_path, class:main_session %> 
+     </div>
+
+     <div class="item">
+      <img src="pic03.jpg">
+      <h2>ユーザーマイページへログイン</h2>
+      <%= link_to "既に登録が済んでいる方は、こちらから個人情報を編集出来ます。", new_user_sessio_path, class:main_session %> 
+     </div>
+    </div>
+
+
+  </div>
+</main>
