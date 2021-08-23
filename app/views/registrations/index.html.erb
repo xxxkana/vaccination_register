@@ -1,11 +1,43 @@
 <main class="main">
   <div class="inner">
     <% if user_signed_in? %>
+
+     <% if current_user.id != 1 %>
       <div class="greeting"> 
         こんにちは、
-        <% link_to "#{current_user.name}さん", _path, class: :greeting__link%> 
-        <!-- あなたの登録番号：<%= current_user.public_uid %>  -->
+        <%= link_to "#{current_user.name}さん", edit_user_path(current_user), class: :greeting__link%> 
+        <br>
+        あなたの登録番号：<%= current_user.public_uid %> 
+
       </div>
+     <% else %>
+      <div class="greeting"> 
+        お疲れ様です、会場登録担当者さん 
+
+      </div>  
+     <% end %>
+
+    <% else %>
+
+      <div class="wrap">
+        <div class="item">
+         <%= image_tag('pic01.jpg') %>
+         <h2>会場担当者ログイン</h2>
+         <%= link_to "会場担当者はこちらからログインしてください。",new_user_session_path, class: :main_session %>
+        </div>
+        <div class="item">
+         <%= image_tag('pic02.jpg') %>
+         <h2>ユーザー新規登録</h2>
+         <%= link_to "初めてワクチン接種をする方は、こちらより登録してください。",new_user_registration_path, class: :main_session %> 
+        </div>
+        <div class="item">
+         <%= image_tag('pic03.jpg') %>
+         <h2>マイページログイン</h2>
+         <%= link_to "既に登録が済んでいる方は、こちらから個人情報を編集出来ます。",new_user_session_path, class: :main_session %> 
+        </div>
+      </div>
+
     <% end %>  
+
   </div>
 </main>

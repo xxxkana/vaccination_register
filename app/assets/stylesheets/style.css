@@ -56,12 +56,12 @@ a {
 }
 .nav__btn{
   display: inline-block;
-  padding: 0.4em 1.6em;
-  font-size: 0.8em;
-  color: #87CEFA;
+  padding: 1.4em 3.0em;
+  font-size: 20px;
+  color: #000000;
   text-decoration: none;
   user-select: none;
-  border: 1px #87CEFA solid;
+  border: 1px #000000 solid;
   border-radius: 3px;
   transition: 0.4s ease;
 }
@@ -72,12 +72,16 @@ a {
 
 .nav__logout{
   display: inline-block;
-  padding: 0.4em 1.6em;
-  font-size: 0.8em;
-  color: #87CEFA;
+  padding: 1.4em 3.0em;
+  font-size: 20px;
+  color: #000000;
   text-decoration: none;
   user-select: none;
+  border: 1px #000000 solid;
+  border-radius: 3px;
+  transition: 0.4s ease;
 }
+
 .nav__logout:hover{
   opacity: 0.5;
 }
@@ -133,7 +137,7 @@ a {
 }
 
 .main_session {
-  text-decoration: underline;
+  font-size: 20px;
 }
 
 @media not all and (min-width: 768px) {
@@ -297,13 +301,7 @@ a {
 /* フッター */
 
 .footer {
-  background-color: #999;
-  padding: 10px 0;
-}
-.copyright {
-  text-align: center;
-  color: #fff;
-  font-size: 10px;
+  
 }
 
 /* タブレット対応 */

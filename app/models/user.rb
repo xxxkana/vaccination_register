@@ -1,10 +1,9 @@
 class User < ApplicationRecord
- 
-
   devise :database_authenticatable, :registerable,:recoverable, :rememberable, :validatable
 
+
   with_options presence: true do
-    validates :address, :datetime
+    validates :address, :datetime, :public_uid
     validates :name, format: {with: /\A[ぁ-んァ-ン一-龥]/}
     validates :name_reading, format: {with: /\A[ァ-ヶー－]+\z/}
     validates :phone_number,format: {with: /\A\d{10,11}\z/}
@@ -15,5 +14,9 @@ class User < ApplicationRecord
 
   PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i.freeze
   validates_format_of :password, with: PASSWORD_REGEX, message: 'には英字と数字の両方を含めて設定してください'
+
+  def assign_public_uid
+      self.public_uid =  SecureRandom.alphanumeric(5)
+  end
 
 end

@@ -3,9 +3,9 @@
     <div class="form__wrapper">
       <h2 class="page-heading">ユーザー情報編集</h2>
 
-        <%= render partial: 'devise/shared/error_messages', locals: { user: @user } %>
+        <%= form_with model: @user,local: true do |f| %>
 
-        <%= form_with model: @user, url: _path, local: true do |f| %>
+        <%#= render partial: 'devise/shared/error_messages', locals: { user: @user } %>
 
         <div class="field">
           <%= f.label :email, "メールアドレス" %><br />
