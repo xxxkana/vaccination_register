@@ -4,8 +4,9 @@
 
      <% if current_user.id != 1 %>
       <div class="greeting"> 
-        こんにちは、<%= current_user.name %>さん
-        <%#= link_to "#{current_user.name}さん", edit_user_path(current_user), class: :greeting__link%> 
+        <!-- こんにちは、<%= current_user.name %>さん -->
+        こんにちは、
+        <%= link_to "#{current_user.name}さん", edit_user_path(current_user), class: :greeting__link%> 
         <br>
         あなたの登録番号：<%= current_user.public_uid %> 
       </div>
@@ -13,16 +14,19 @@
       <div class="greeting"> 
         お疲れ様です、会場登録担当者さん<br>
         現在の接種完了数：<%= Registration.count %>
-        <%= form_with model:@registration, url:registrations_path , local: true do |f| %>
+        <%= notice %>
+        <%= form_with url: users_path, method: :get, local: true do |f| %>
           <div class="field">
             <%= f.label :public_uid, "個人番号を入力してください" %><br />
             <%= f.text_field :public_uid, id:"user_public_uid", autofocus: true, autocomplete: "public_uid" %>
+            <%= f.hidden_field :id, value: "1" %>
           </div>
         <div class="actions">
           <%= f.submit "登録", class: :form__btn %>
         </div>
         <% end %>
-      <% end %>
+      </div>
+     <% end %> 
     <% else %>
       <div class="wrap">
         <div class="item">
@@ -41,7 +45,6 @@
          <%= link_to "既に登録が済んでいる方は、こちらから個人情報を編集出来ます。",new_user_session_path, class: :main_session %> 
         </div>
       </div>
-
     <% end %>  
 
   </div>

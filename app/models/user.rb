@@ -1,8 +1,7 @@
 class User < ApplicationRecord
   devise :database_authenticatable, :registerable,:recoverable, :rememberable, :validatable
 
-  has_one :id_registrations
-  belongs_to :user
+  has_one :registration
 
   with_options presence: true do
     validates :address, :datetime, :public_uid

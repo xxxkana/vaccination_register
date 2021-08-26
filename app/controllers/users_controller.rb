@@ -1,4 +1,15 @@
 class UsersController < ApplicationController
+  def index
+    if params[:public_uid]   
+       user = User.find_by(public_uid: params[:public_uid]) 
+       redirect_to user_path(user)
+    end
+  end
+
+  def show
+    @user = User.find_by(id: params[:id])
+    @registration = Registration.new
+  end
 
   def edit
     @user = User.find(params[:id])
@@ -6,7 +17,7 @@ class UsersController < ApplicationController
   
   def update
     if current_user.update(user_params)
-      redirect_to  controller: :registrations, action: :index
+      redirect_to  user_path(@user[:id])
     else
       render :edit
     end
