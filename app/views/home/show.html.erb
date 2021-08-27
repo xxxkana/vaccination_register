@@ -11,8 +11,9 @@
         あなたの登録番号：<%= current_user.public_uid %> 
       </div>
      <% else %>
+     <%= notice %>
       <div class="greeting"> 
-        お疲れ様です、会場登録担当者さん<br>
+        お疲れ様です、会場登録担当者さん<br><%= notice %>
         現在の接種完了数：<%= Registration.count %>
         <%= notice %>
         <%= form_with url: users_path, method: :get, local: true do |f| %>

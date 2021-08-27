@@ -12,7 +12,7 @@ class RegistrationsController < ApplicationController
      @user = User.find_by(id: params[:id])
      @registration = Registration.new(registration_params)
      @registration.save
-     redirect_to root_path(user[0])
+     redirect_to home_path
   
   end
 
