@@ -1,4 +1,4 @@
-class HomeController < ApplicationController
+class RegistrationsController < ApplicationController
   def index
     @user = User.new
     
@@ -9,13 +9,16 @@ class HomeController < ApplicationController
   end
      
   def create
+     @user = User.find_by(id: params[:id])
+     @registration = Registration.new(registration_params)
      @registration.save
-     redirect_to root_path, notice: 'メッセージが送信されました'
+     redirect_to root_path(user[0])
   
   end
 
-  #private
-  #def registration_params
-    #params.require(:registration).permit(:public_uid_id)
-  #end
+  private
+  
+  def registration_params
+    params.require(:registration).permit(:user_id)
+  end
 end

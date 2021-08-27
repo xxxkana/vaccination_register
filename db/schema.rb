@@ -13,10 +13,10 @@
 ActiveRecord::Schema.define(version: 2021_08_24_163109) do
 
   create_table "registrations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "public_uid_id"
+    t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["public_uid_id"], name: "index_registrations_on_public_uid_id"
+    t.index ["user_id"], name: "index_registrations_on_user_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -44,5 +44,5 @@ ActiveRecord::Schema.define(version: 2021_08_24_163109) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "registrations", "users", column: "public_uid_id"
+  add_foreign_key "registrations", "users"
 end
