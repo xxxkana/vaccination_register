@@ -1,0 +1,6 @@
+<%= form_with model: [@user,@registration], method: :post do |f| %>
+<div class="actions">
+<%= f.hidden_field :user_id, value: params[:id] %>
+<%= f.submit "登録", class: :form__btn %>
+</div>
+<% end %>
