@@ -1,6 +1,7 @@
-<%= form_with model: [@user,@registration], method: :post do |f| %>
+<%= form_with model: [@user,@registration], method: :post, remote: true do |f| %>
 <div class="actions">
 <%= f.hidden_field :user_id, value: params[:id] %>
+登録ボタンを押してください。<br>
 <%= f.submit "登録", class: :form__btn %>
 </div>
 <% end %>
