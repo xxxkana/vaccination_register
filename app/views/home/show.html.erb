@@ -8,11 +8,13 @@
         こんにちは、
         <%= link_to "#{current_user.name}さん", edit_user_path(current_user), class: :greeting__link%> 
         <br>
-        あなたの登録番号：<%= current_user.public_uid %> 
+        あなたの登録番号：<%= current_user.public_uid %><br> 
+        
       </div>
      <% else %>
      <%= notice %>
       <div class="greeting"> 
+        <%= notice %><br>
         お疲れ様です、会場登録担当者さん<br><%= notice %>
         現在の接種完了数：<%= Registration.count %>
         <%= notice %>
