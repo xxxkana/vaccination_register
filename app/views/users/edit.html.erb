@@ -5,8 +5,6 @@
 
         <%= form_with model: @user,local: true do |f| %>
 
-        <%#= render partial: 'devise/shared/error_messages', locals: { user: @user } %>
-
         <div class="field">
           <%= f.label :email, "メールアドレス" %><br />
           <%= f.email_field :email, id:"user_email", autofocus: true, autocomplete: "email" %>

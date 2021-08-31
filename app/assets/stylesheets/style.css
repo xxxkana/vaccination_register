@@ -154,6 +154,7 @@ a {
 
 .greeting{
   margin-bottom: 20px;
+  font-size: 15px;
 }
 .greeting__link{
   text-decoration: underline;

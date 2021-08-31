@@ -9,15 +9,12 @@
         <%= link_to "#{current_user.name}さん", edit_user_path(current_user), class: :greeting__link%> 
         <br>
         あなたの登録番号：<%= current_user.public_uid %><br> 
-        
       </div>
      <% else %>
-     <%= notice %>
-      <div class="greeting"> 
-        <%= notice %><br>
-        お疲れ様です、会場登録担当者さん<br><%= notice %>
-        現在の接種完了数：<%= Registration.count %>
-        <%= notice %>
+      <div class="greeting">
+        お疲れ様です、会場登録担当者さん<br>
+        現在の接種完了数：<%= Registration.count %><br>
+        <%= flash[:notice] %><br>
         <%= form_with url: users_path, method: :get, local: true do |f| %>
           <div class="field">
             <%= f.label :public_uid, "個人番号を入力してください" %><br />
