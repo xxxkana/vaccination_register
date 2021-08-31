@@ -13,7 +13,6 @@ class RegistrationsController < ApplicationController
      @registration = Registration.new(registration_params)
      @registration.save
      redirect_to home_path
-  
   end
 
   private
